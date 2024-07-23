@@ -1,0 +1,35 @@
+@font-face {
+    font-family: PT Sans;
+    src: url('../fonts/PTSans-Regular.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: PT Sans;
+    src: url('../fonts/PTSans-Bold.ttf');
+    font-weight: 700;
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PT Sans';
+}
+.main {
+    max-width: 450px;
+    padding: 60px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.motto img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    display: block;
+}
+.motto h1 {
+    font-size: 36px;
+    line-height: 47px;
+    font-weight: 700;
+}
