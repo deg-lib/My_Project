@@ -1,0 +1,20 @@
+@media (max-width: 430px) {
+   .photos {
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+   }
+   
+   header {
+      font-size: 12px;
+      height: 20px;
+      margin-left: 10px;
+   }
+
+   .photos img {
+      margin: 5px;
+   }
+   .container {
+      padding: 50px;
+   }
+}
