@@ -19,15 +19,17 @@ exit;
     </head>
     <body class="container">
         <header>
-            <a href="/index.html">Главная</a>
+            <a href="/">Главная</a>
             <span> > { название товара } </span>
         </header>
         <main>
             <h1><?=$product->name?></h1>
             <section class="photos">
-                <img src="<?=$product->image[0]?>" alt="Картинка товара" width="200" height="200">
-                <img src="<?=$product->image[1]?>" alt="Картинка товара" width="200" height="200">
-                <img src="<?=$product->image[2]?>" alt="Картинка товара" width="200" height="200">
+                <img class="photo1" src="<?=$product->image[0]?>" alt="<?= $product->name ?>">
+                <div class="photos2">
+                    <img class="photo2" src="<?=$product->image[1]?>" alt="<?= $product->name ?>" width="200" height="200">
+                    <img class="photo2" src="<?=$product->image[2]?>" alt="<?= $product->name ?>" width="200" height="200">
+                </div>
             </section>
             <div>
                 <p><?=$product->description?> </p>
