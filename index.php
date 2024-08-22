@@ -21,10 +21,11 @@ $products = Product::getAllProducts();
                 <section class="products">
                     <h2>Товары</h2>
                     <?php foreach ($products as $product): ?>
-                       <div class="card">
+                       <div class="card" data-id="<?=$product->id ?>">
                         <img src="<?= $product->image[0] ?>" alt="<?= $product->name ?>" width="200" height="200">
                         <a href="/product_template.php?id=<?= $product->id ?>"><h3 class="product-name"><?= $product->name ?></h3></a>
                         <p class="product-number"><?= $product->quantity ?> шт.</p>
+                        <?php if ($product->quantity > 0): ?>
                         <div class="row">
                             <div class="buttons">
                                 <button>-</button>
@@ -35,22 +36,25 @@ $products = Product::getAllProducts();
                         </div>
                         
                         <button class="basket">Добавить в корзину</button>
-                      </div>
+                        <?php endif; ?>
+                        </div>
                       <?php endforeach; ?>
                 </section>
                 <div class="basket-block">
                     <p class="offer">Ваш заказ</p>
-                    <p class="basket-nothing">Корзина пуста</p>
+                    <div class="cart-items"></div>
+                    <!-- <p class="basket-nothing">Корзина пуста</p> -->
                     <p class="delievery">Доставка: бесплатно</p>
-                    <p class="total">Итого: <span> 1000тг</span></p>
-                    <form>
+                    <p class="total">Итого: <span></span></p>
+                    <form action="order.php" method="POST">
                         <legend class="get-order">Оформить заказ</legend>
-                        <input type="Phone" placeholder="  Ваш номер телефона" class="phone-number">
+                        <input type="Phone" placeholder="  Ваш номер телефона" class="phone-number"
+                        class="phone-number" required>
                     </form>
-                    <button class="get">Заказать</button>
+                    <button type="submit" class="get" id="order">Заказать</button>
                 </div>
             </div>
-            
+            <script src="card.js"></script>
         </main>
         <footer></footer>
     </body>

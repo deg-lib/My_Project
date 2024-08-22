@@ -20,7 +20,7 @@ exit;
     <body class="container">
         <header>
             <a href="/">Главная</a>
-            <span> > { название товара } </span>
+            <span> > { <?= $product->name?> } </span>
         </header>
         <main>
             <h1><?=$product->name?></h1>
@@ -31,7 +31,7 @@ exit;
                     <img class="photo2" src="<?=$product->image[2]?>" alt="<?= $product->name ?>" width="200" height="200">
                 </div>
             </section>
-            <div>
+            <div class= "button_and_text"><div class="description">
                 <p><?=$product->description?> </p>
             </div>
             <div class="div-block">
@@ -42,9 +42,10 @@ exit;
                     <span>1</span>
                     <button>+</button>
                 </div>
-                <button class="basket5">Добавить в корзину</button>
+                <button class="basket5" onclick="addToCart(<?= $product->id ?>)">Добавить в корзину</button>
             </div>
-            </div>
+            </div></div>
+            
         </main>
     </body>
 </html>
