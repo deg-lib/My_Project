@@ -28,11 +28,11 @@ $products = Product::getAllProducts();
                         <?php if ($product->quantity > 0): ?>
                         <div class="row">
                             <div class="buttons">
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
+                                <button class="decrease">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increase">+</button>
                             </div>
-                            <span><?= $product->price ?> </span>
+                            <span class="price"><?= $product->price ?> </span>
                         </div>
                         
                         <button class="basket">Добавить в корзину</button>
@@ -40,18 +40,19 @@ $products = Product::getAllProducts();
                         </div>
                       <?php endforeach; ?>
                 </section>
-                <div class="basket-block">
+                <div class="basket-block" style="height: 500px">
                     <p class="offer">Ваш заказ</p>
                     <div class="cart-items"></div>
                     <!-- <p class="basket-nothing">Корзина пуста</p> -->
                     <p class="delievery">Доставка: бесплатно</p>
                     <p class="total">Итого: <span></span></p>
-                    <form action="order.php" method="POST">
+                    <form action="order.html" method="POST">
                         <legend class="get-order">Оформить заказ</legend>
-                        <input type="Phone" placeholder="  Ваш номер телефона" class="phone-number"
+                        <input type="Phone" placeholder="Ваш номер телефона" class="phone-number"
                         class="phone-number" required>
+                        <button type="submit" class="get" id="order">Заказать</button>
                     </form>
-                    <button type="submit" class="get" id="order">Заказать</button>
+                    
                 </div>
             </div>
             <script src="card.js"></script>

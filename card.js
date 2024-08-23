@@ -1,23 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cart = []
-    
-    document.querySelectorAll('.basket').forEach(button => {
-        button.addEventListener('click', () => {
-            const card = button.closest('.card')
-            const id = card.dataset.id
-            const name = card.querySelector('.product-name').textContent
-            const price = parseInt(card.querySelector('.row span:last-child').textContent)
 
-            addToCart({ id, name, price})
-        })
+    document.querySelectorAll('.card').forEach(card => {
+        const decreaseButton = card.querySelector('.decrease')
+        const increaseButton = card.querySelector('.increase')
+        const quantitySpan = card.querySelector('.quantity')
+        const basketButton = card.querySelector('.basket')
+
+        let quantity = 1
+
+        if (decreaseButton && increaseButton && basketButton) {
+            decreaseButton.addEventListener('click', () => {
+                if (quantity > 1) {
+                    quantity--
+                    quantitySpan.textContent = quantity
+                }
+            })
+
+            increaseButton.addEventListener('click', () => {
+                if (quantity < 10) {
+                    quantity++
+                    quantitySpan.textContent = quantity
+                }
+            })
+
+            basketButton.addEventListener('click', () => {
+                const card = basketButton.closest('.card')  
+                const id = card.dataset.id
+                const name = card.querySelector('.product-name').textContent
+                const price = parseInt(card.querySelector('.price').textContent, 10)
+
+                addToCart({ id, name, price, quantity })
+                quantity = 1
+                quantitySpan.textContent = quantity
+            })
+        }
     })
 
     function addToCart(product) {
         const existingProduct = cart.find(item => item.id === product.id)
         if (existingProduct) {
-            existingProduct.quantity += 1
+            existingProduct.quantity += product.quantity
         } else {
-            cart.push({ ...product, quantity:1})
+            cart.push(product)
         }
         renderCart()
     }
@@ -31,11 +56,28 @@ document.addEventListener('DOMContentLoaded', () => {
         let totalPrice = 0
         cart.forEach(item => {
             const itemDiv = document.createElement('div')
-            // itemDiv.className = 'basket-nothing'
-            itemDiv.innerHTML = `
-            <p>${item.name} x ${item.quantity}</p>
-            <p>${item.price * item.quantity}тг</p>
-            `
+            itemDiv.style.display = 'flex'
+            itemDiv.style.justifyContent = 'space-between'
+            itemDiv.style.alignItems = 'center'
+            itemDiv.style.marginBottom = '10px'
+            itemDiv.style.padding = '10px'
+            itemDiv.style.border = '1px solid #ddd'
+            itemDiv.style.borderRadius = '5px'
+            itemDiv.style.backgroundColor = '#f9f9f9'
+            itemDiv.style.height = '29px'
+
+            const itemName = document.createElement('p')
+            itemName.textContent = `${item.name} x ${item.quantity}`
+            itemName.style.flex = '1'
+            itemName.style.margin = '0'
+            itemName.style.color = '#333'
+            itemName.style.fontWeight = 'bold'
+
+            const itemPrice = document.createElement('p')
+            itemPrice.textContent = `${item.price * item.quantity}тг`
+
+            itemDiv.appendChild(itemName)
+            itemDiv.appendChild(itemPrice)
             cartItems.appendChild(itemDiv)
             totalPrice += item.price * item.quantity
         })

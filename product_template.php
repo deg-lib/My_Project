@@ -31,21 +31,10 @@ exit;
                     <img class="photo2" src="<?=$product->image[2]?>" alt="<?= $product->name ?>" width="200" height="200">
                 </div>
             </section>
-            <div class= "button_and_text"><div class="description">
-                <p><?=$product->description?> </p>
+            <div class= "button_and_text">
+                <p class="description"><?=$product->description?> </p>
             </div>
-            <div class="div-block">
-                <p class="cost1"><?=$product->price?></p>
-                <p class="quantity"><?=$product->quantity?></p>
-                <div class="button2">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
-                </div>
-                <button class="basket5" onclick="addToCart(<?= $product->id ?>)">Добавить в корзину</button>
-            </div>
-            </div></div>
-            
         </main>
+        <script src="card.js"></script>
     </body>
 </html>

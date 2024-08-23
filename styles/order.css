@@ -1,0 +1,27 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    justify-content: center;
+    display: flex;
+    padding-top: 180px;
+}
+
+.order-container {
+    align-items: center;
+    background-color: gainsboro;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    line-height: 10px;
+    padding: 10px;
+    color: black;
+    box-shadow:  rgba(0, 0, 0, 0.2) 0 4px 4px 0;
+}
+
+.image {
+    justify-content: left;
+    display: flex;
+}
+
+.p {
+    font-size: 20px;
+}
