@@ -23,7 +23,7 @@ exit;
             <span> > { <?= $product->name?> } </span>
         </header>
         <main>
-            <h1><?=$product->name?></h1>
+            <h1><?=$product->name?> - <?=$product->price?> тг</h1>
             <section class="photos">
                 <img class="photo1" src="<?=$product->image[0]?>" alt="<?= $product->name ?>">
                 <div class="photos2">

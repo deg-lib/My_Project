@@ -1,11 +1,13 @@
 @media (max-width: 430px) {
    .photos {
         flex-direction: column;
-        align-items: center;
         display: flex;
    }
 
-
+   .photo1 {
+      width: 200px;
+      height: 200px;
+   }
    
    header {
       font-size: 12px;
@@ -29,12 +31,21 @@
 
 }
 
- @media (min-width: 431px) and (max-width: 1368px) {
+ @media (min-width: 431px) and (max-width: 1024px) {
    .photos {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         display: flex;
+        gap: 40px;
+   }
+
+   .photo1 {
+      width: 55%;
+      height:400px;
+      box-shadow: rgba(0, 0, 0, 0.2) 0 4px 4px 0;
+     
+      
    }
 
 
@@ -59,10 +70,16 @@
    }
 }
 
-@media (min-width: 1369px) and (max-width: 1817px) {
+@media (min-width: 1025px) and (max-width: 1817px) {
   header {
    margin-top: 100px;
    margin-left: 20px;
+  }
+
+  .description {
+   margin-left: 20px;
+   font-size: 80px;
+   width: 1000px;
   }
   
    h1 {
@@ -72,22 +89,29 @@
 
   .photos {
    margin-left: 20px;
+   height: auto;
+   gap: 60px;
+   width: auto;
+   flex-direction: row;
+   align-items: center;
+   display: flex;
+
   }
 
   .photo1 {
-   width: 50px;
-   height: 10px;
+      width: 55%;
+      height: 400px;
+      box-shadow: rgba(0, 0, 0, 0.2) 0 4px 4px 0;
+    
+  }
+
+  .photos2 {
+   line-height: 40px;
+   gap: 20px
   }
 }
 
-.photos {
-   gap: 40px;
-   width: auto;
-   flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        display: flex;
-}
+
 
 .div-block {
    background-color: #fff;
@@ -163,10 +187,7 @@
    width: 150px;
  }
 
- .photo1 {
-   width: 55%;
-   height: 400px;
- }
+ 
 
 .photos2 {
    flex-direction: column;
@@ -176,6 +197,7 @@
 
 .photo2 {
    height: 190px;
+   box-shadow: rgba(0, 0, 0, 0.2) 0 4px 4px 0;
 }
 
 .description {
